@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poseidon Park - Аквапарк</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
+</head>
+<body>
+    {% include 'main/header.html' %}
+
+    <div class="container">
+        <div class="info-block">
+            <div class="info-text">
+                <h2>О компании Poseidon Park</h2>
+                <p>Первый аквапарк «Poseidon Park» был открыт в 2005 году в Екатеринбурге. За это время его посетило более восьми миллионов посетителей.
+<p>Накопленный опыт мы применили при проектировании и строительстве нового аквапарка в Оренбурге, который распахнул свои двери в августе 2017 года. Наш новый парк оснащен по самым современным стандартам и технологиям отрасли, отвечает строгим требованиям безопасности.</p>
+<p>Попадая впервые в аквапарк«Poseidon Park», к нам возвращаются вновь и вновь, ведь только здесь, в непростых погодных условиях, можно забыть обо всем и на целый день окунуться в атмосферу курорта.</p>
+<p>Аквапарк «Poseidon Park» открыт круглый год для всех желающих и не имеет возрастных ограничений
+В «Poseidon Park» каждый найдет развлечение и отдых по душе: спокойные бассейны, игровые аттракционы для самых маленьких и экстремальные горки для любителей адреналина, а также потрясающий банный комплекс.</p>
+<p>Прилив адреналина после посещения наших аттракционов зачастую вызывает зверский аппетит. Мы прекрасно об этом знаем и поэтому на территории аквазоны работают бары, где представлено самое разнообразное меню от легких закусок до полноценных горячих блюд.
+Мы знаем, как часто родители задают себе вопрос: как же устроить для своего ребенка незабываемый день рождения?  И ответ на этот вопрос очень прост: проведите этот праздник в аквапарке и благодарности ребенка не будет предела!</p>
+<p>Наша главная задача - сделать ваш отдых комфортным, безопасным и незабываемым! Доверьте ваш досуг профессионалам! «Poseidon Park» - сеть аквапарков №1 в России.         </p>
+            </div>
+            <div class="video">
+              <video width="800" autoplay muted loop>
+                    <source src="{{ video.video.url }}" alt="width="230" height="230">
+                </video>
+            </div>
+        </div>
+
+        <div class="services-block">
+            <div class="services">
+                <h1>Услуги</h1>
+                {% for service in services %}
+                    <h3>{{ service.name }}</h3>
+                    <img src="{{ service.image.url }}" height="300px" width="400px">
+                    <p>{{ service.description }}</p>
+                    <p>{{ service.price }} руб.</p>
+                    <button onclick="window.location.href = '{% url 'main:create_visit' pk=service.pk model="service" %}'">Купить</button>
+                {% endfor %}
+            </div>
+            <div class="entertainment">
+                <h1>Развлечения</h1>
+                {% for entertainment in entertainments %}
+                    <h3>{{ entertainment.name }}</h3>
+                    <img src="{{ entertainment.image.url }}" height="300px" width="400px">
+                    <p>{{ entertainment.description }}</p>
+                    <p>{{ entertainment.duration }}</p>
+                    <button onclick="window.location.href = '{% url 'main:create_visit' pk=entertainment.pk model="entertainment" %}'">Купить</button>
+                {% endfor %}
+            </div>
+
+            <div class="entertainment">
+                <h1>Акции</h1>
+                {% for promotion in promotions %}
+                    <h3>{{ promotion.name }}</h3>
+                    <img src="{{ promotion.image.url }}" height="300px" width="400px">
+                    <p>{{ promotion.description }}</p>
+                    <p>{{ promotion.duration }}</p>
+                    <button onclick="window.location.href = '{% url 'main:create_visit' pk=promotion.pk model="promotion" %}'">Купить</button>
+                {% endfor %}
+            </div>
+
+            
+        </div>
+<h1 align="center">Главная акция</h1>
+        <div class="promo-block">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <p>в Аквапарке действует скидка 20% имениннику.
+<p>Скидка именинника предоставляется по тарифному плану для категорий билетов «Взрослые и дети выше 146 см» и «Дети от 1 м до 146 см» на основные тарифы только при предъявлении документа, удостоверяющего личность в диапазоне за 7 дней до и 7 дней после дня рождения.</p>
+<p>Посетитель может приобрести билет в аквапарк со скидкой онлайн на сайте, либо на кассе аквапарка, уведомив кассира о том, что хочет приобрести тариф со скидкой для именинника.</p>
+<p>Скидка распространяется только на именинника</p>
+                    <h3><a href="#" class="button">Подробнее</a><h3>
+                </div>
+            </div>
+            <div class="arrows">
+            </div>
+        </div>
+
+
+        <div class="articles">
+            <h2>Статьи</h2>
+            {% for post in posts %}
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.text }}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'main/footer.html' %}
+</body>
+</html>

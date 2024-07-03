@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}">
+
+</head>
+<body>
+    {% include 'main/header.html' %}
+
+    <h1>Результаты поиска</h1>
+    <div class="catalog-container">
+
+        <div class="cards-container">
+            {% for promotion in promotions %}
+                <div class="card">
+                    <img src="{{ promotion.image.url }}" alt="Promotion Image">
+                    <div class="card-details">
+                        <h3>{{ promotion.name }}</h3>
+                        <p>{{ promotion.description }}</p>
+                        <p>Дата начала: {{ promotion.start_date }}</p>
+                        <p>Дата завершения: {{ promotion.end_date }}</p>
+                        <button onclick="window.location.href = '{% url 'main:create_visit' pk=promotion.pk model="promotion" %}'">Купить</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="cards-container">
+            {% for service in services %}
+                <div class="card">
+                    <img src="{{ service.image.url }}" alt="Service Image">
+                    <div class="card-details">
+                        <h3>{{ service.name }}</h3>
+                        <p>{{ service.description }}</p>
+                        <p>{{ service.price }} руб.</p>
+                        <button onclick="window.location.href = '{% url 'main:create_visit' pk=service.pk model="service" %}'">Купить</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="cards-container">
+            {% for product in products %}
+                <div class="card">
+                    <img src="{{ product.image.url }}" alt="Product Image">
+                    <div class="card-details">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.description }}</p>
+                        <p>{{ product.price }} руб.</p>
+                        <button onclick="window.location.href = '{% url 'main:create_visit' pk=product.pk model="product" %}'">Купить</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% include 'main/footer.html' %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    
+    <title>Регистрация</title>
+</head>
+<body style="background-color: rgb(11, 231, 11);">
+
+{% include 'main/header.html' %}
+
+<div class="login-page" style="margin-top: 40px;">
+    <div class="form">
+        <form class="login-form" action="{% url 'main:register' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зарегистрироваться</button>
+            <p class="message">Уже зарегистированы? <a href="{% url 'main:login' %}">Войдите</a></p>
+        </form>
+    </div>
+</div>
+{% include 'main/footer.html' %}
+
+<style>
+    .login-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+</body>
+</html>

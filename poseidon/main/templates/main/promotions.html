@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акции</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    {% include 'main/header.html' %}
+
+    <h1>Акции</h1>
+    <div class="promotions-container">
+        {% for promotion in promotions %}
+            <div class="promotion-card">
+                <img src="{{ promotion.image.url }}" alt="Promotion Image">
+                <div class="promotion-details">
+                    <h2>{{ promotion.name }}</h2>
+                    <p>{{ promotion.description }}</p>
+                    <p>Начало акции: {{ promotion.start_date }}</p>
+                    <p>Конец акции: {{ promotion.end_date }}</p>
+                    <button onclick="window.location.href = '{% url 'main:create_visit' pk=promotion.pk model="promotion" %}'">Заказать</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include 'main/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посещения</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/visits.css' %}">
+</head>
+<body>
+    {% include 'main/header.html' %}
+
+    <h1>Посещения</h1>
+    <div class="visits-container">
+        {% for visit in visits %}
+            <div class="visit-card">
+                <div class="visit-details">
+                    <h3>Посетитель: {{ visit.user.username }}</h3>
+                    <p>Дата посещения: {{ visit.visit_date }}</p>
+                    {% if visit.service %}
+                        <p>Услуга: {{ visit.service.name }}</p>
+                    {% endif %}
+                    {% if visit.entertainment %}
+                        <p>Развлечение: {{ visit.entertainment.name }}</p>
+                    {% endif %}
+                    {% if visit.promotion %}
+                        <p>Акция: {{ visit.promotion.name }}</p>
+                    {% endif %}
+                    {% if visit.product %}
+                        <p>Товар: {{ visit.product.name }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include 'main/footer.html' %}
+</body>
+</html>

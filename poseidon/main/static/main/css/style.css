@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #800080;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+header {
+    background-color: #7859ffff;
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    float: left;
+}
+.menu {
+    float: right;
+}
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.clear {
+    clear: both;
+}
+.info-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+.info-text, .video {
+    width: 48%;
+}
+.services-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+.services, .entertainment {
+    width: 48%;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7859ffff;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+.promo-block, .recommendations, .articles {
+    margin: 40px 0;
+}
+.promo-content {
+    display: flex;
+    justify-content: space-between;
+}
+.promo-image, .promo-text {
+    width: 48%;
+}
+.arrows {
+    text-align: center;
+    margin-top: 20px;
+}
+footer {
+    background-color: #7859ffff;
+    padding: 20px 0;
+    text-align: center;
+}
+.social-links img {
+    width: 30px;
+    margin: 0 10px;
+}
+button {
+background-color: #4CAF50; /* #800080 */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+border-radius: 5px;
+cursor: pointer;
