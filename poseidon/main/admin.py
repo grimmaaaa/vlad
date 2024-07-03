@@ -1,10 +1,11 @@
 from django.contrib import admin
 
-from .models import BaseUser, Service, Entertainment, Promotion, Product, Visit
+from .models import BaseUser, Service, Entertainment, Promotion, Product, Visit, Video
 
 
 # Настройка административного интерфейса для модели BAseUser
 admin.site.register(BaseUser)
+admin.site.register(Video)
 
 # Настройка административного интерфейса для модели Service
 @admin.register(Service)
