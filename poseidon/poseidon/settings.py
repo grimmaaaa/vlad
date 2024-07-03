@@ -15,7 +15,7 @@ SECRET_KEY = 'NJHGYUFCJYGVUHJpbjhgcycituyg8675674d5c6789F&TC%R&VTyfd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vlad-4rms.onrender.com']
 
 AUTH_USER_MODEL = 'main.BaseUser'
 
